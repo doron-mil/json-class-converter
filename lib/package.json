@@ -13,6 +13,10 @@
     "conversion",
     "class"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doron-mil/json-class-converter"
+  },
   "author": "Eldar-Doron Miller",
   "license": "MIT"
 }
