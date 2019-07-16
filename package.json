@@ -1,0 +1,23 @@
+{
+  "name": "json-class-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "prepublish": "tsc",
+  "scripts": {
+    "build": "tsc",
+    "copy-readme": "cp ./README.md ./dist",
+    "copy-license": "cp ./LICENSE ./dist",
+    "copy-files": "cp ./lib/package.json ./dist && npm run copy-readme && npm run copy-license",
+    "npm_pack": "cd dist && npm pack",
+    "package": "npm run build && npm run copy-files && npm run npm_pack"
+  },
+  "keywords": [],
+  "author": "Eldar-Doron-Miller",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "typescript": "^3.5.3"
+  }
+}
