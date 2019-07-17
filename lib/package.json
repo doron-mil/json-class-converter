@@ -1,7 +1,9 @@
 {
   "name": "json-class-converter",
   "version": "1.0.1",
-  "description": "",
+  "description": "Module to serialize and deserialize JS/TS objects to JSON. ",
+  "author": "Eldar-Doron Miller",
+  "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "types": "index.d.ts",
   "prepublish": "tsc",
@@ -16,7 +18,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/doron-mil/json-class-converter"
-  },
-  "author": "Eldar-Doron Miller",
-  "license": "MIT"
+  }
 }
