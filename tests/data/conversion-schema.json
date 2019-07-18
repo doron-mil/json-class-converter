@@ -1,0 +1,37 @@
+[
+  {
+    "className": "ClassA",
+    "propertyConversionArray": [
+      {
+        "propertyName": "id"
+      },
+      {
+        "propertyName": "fullName",
+        "propertyNameInJson": "name.full_name"
+      },
+      {
+        "propertyName": "birthDate",
+        "propertyNameInJson": "date_of_birth",
+        "conversionFunctionName": "dateConversion",
+        "conversionFunctionToJsonName": "dateToStrDateConversionForJson"
+      },
+      {
+        "propertyName": "moreData",
+        "type": "ClassB"
+      }
+    ]
+  },
+  {
+    "className": "ClassB",
+    "propertyConversionArray": [
+      {
+        "propertyName": "favoriteColor",
+        "propertyNameInJson": "favorite_color"
+      },
+      {
+        "propertyName": "likesPizza",
+        "propertyNameInJson": "likes_pizza"
+      }
+    ]
+  }
+]

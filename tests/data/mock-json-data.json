@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "full_name": "Jack Sparrow"
+    },
+    "date_of_birth": "14/11/1965",
+    "moreData": {
+      "favorite_color": "blue",
+      "likes_pizza": true
+    }
+  },
+  {
+    "id": 2,
+    "name": {
+      "full_name": "Tarzan"
+    },
+    "date_of_birth": "18/7/1932"
+  },
+  {
+    "id": 3,
+    "name": {
+      "full_name": "Gandalf The great"
+    },
+    "date_of_birth": "16/2/500"
+  },
+  {
+    "id": 4,
+    "name": {
+      "full_name": "Han Solo"
+    },
+    "date_of_birth": "5/9/8743"
+  },
+  {
+    "id": 5,
+    "name": {
+      "full_name": "Vito Corleone"
+    },
+    "date_of_birth": "8/3/1952",
+    "moreData": {
+      "favorite_color": "red",
+      "likes_pizza": false
+    }
+  },
+  {
+    "id": 6,
+    "name": {
+      "full_name": "Rick Deckard"
+    },
+    "date_of_birth": "19/5/4965"
+  },
+  {
+    "id": 7,
+    "name": {
+      "full_name": "James Bond"
+    },
+    "date_of_birth": "23/10/1965"
+  }
+]
