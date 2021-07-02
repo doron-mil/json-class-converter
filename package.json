@@ -1,6 +1,6 @@
 {
   "name": "json-class-converter",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,7 +11,9 @@
     "copy-license": "cp ./LICENSE ./dist",
     "copy-files": "cp ./lib/package.json ./dist && npm run copy-readme && npm run copy-license",
     "npm_pack": "cd dist && npm pack",
-    "package": "npm run build && npm run copy-files && npm run npm_pack"
+    "publish-package": "npm publish --access public",
+    "package": "npm run build && npm run copy-files && npm run npm_pack",
+    "package-and-publish": "npm run package && npm run publish-package"
   },
   "keywords": [],
   "author": "Eldar-Doron-Miller",
