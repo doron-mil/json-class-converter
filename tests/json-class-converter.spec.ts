@@ -22,7 +22,7 @@ describe('JsonClassConverter', () => {
     let jsonMap: Map<number, any>;
 
     beforeAll(() => {
-        converterInstance = new JsonClassConverter(jsonConverterConfig)
+        converterInstance = new JsonClassConverter(jsonConverterConfig);
 
         jsonMap = Array.from(classAData).reduce((previousValue: Map<number, any>, currentValue: any) => {
             return previousValue.set(Number(currentValue.id), currentValue);
@@ -36,6 +36,7 @@ describe('JsonClassConverter', () => {
 
     it('converting class A', () => {
         classAConvertedArray = converterInstance.convert<ClassA>(classAData, 'ClassA');
+        expect(classAConvertedArray.length).toEqual(classAData.length);
         classAConvertedArray.forEach((classA) => {
             expect(classA !== null && classA !== undefined).toBeTruthy();
             expect(classA instanceof ClassA).toBeTruthy();
@@ -57,6 +58,22 @@ describe('JsonClassConverter', () => {
             }
             expect(fromJsonClassA).toBeTruthy();
             expect(fromJsonClassA).toEqual(convertedJsonFromClassA);
+        });
+    });
+
+    it.skip('converting class A with object array map', () => {
+        const objMap: { [key: number]: any } = {};
+        classAData.forEach(classAItem => objMap[classAItem.id] = classAItem);
+        classAConvertedArray = converterInstance.convert<ClassA>(objMap, 'ClassA');
+        expect(classAConvertedArray.length).toEqual(classAData.length);
+        classAConvertedArray.forEach((classA) => {
+            expect(classA !== null && classA !== undefined).toBeTruthy();
+            expect(classA instanceof ClassA).toBeTruthy();
+            expect(classA.getBirthDateDay()).toBeTruthy();
+            const fromJsonClassA = jsonMap.get(classA.id);
+            expect(fromJsonClassA).toBeTruthy();
+            expect(classA.fullName).toEqual(fromJsonClassA.name.full_name);
+            expect(moment(classA.birthDate).isSame(moment(fromJsonClassA.date_of_birth, jsonConvConfigUtil.dateFormat))).toBeTruthy();
         });
     });
 

@@ -1,6 +1,12 @@
-const getClassNameOutOfObject = (classedObject: [(any | any[])], classesMap: Map<string, { new(): any }>): string => {
+const getClassNameOutOfObject = (classedObject: [(any | any[])], classesMap: Map<string, { new(): any }>):
+    string | null => {
     let foundClassName = null;
-    const objConstructor = (Array.isArray(classedObject) ? classedObject[0] : classedObject).constructor;
+    const refObject = Array.isArray(classedObject) ? classedObject[0] : classedObject;
+    if (!refObject) {
+        console.error('jsonClassConverter::getClassNameOutOfObject. Exception. Got Empty classedObject');
+        return null;
+    }
+    const objConstructor = refObject.constructor;
 
     const entries = classesMap.entries();
     let entry = entries.next();
@@ -26,8 +32,10 @@ const getIsArray = (object: any): boolean => {
 }
 
 const isNotNull = (aObject: any): boolean => {
-    return aObject != null && aObject !== null && typeof aObject !== 'undefined';
-}
+    return aObject != null && aObject !== null && typeof aObject !== 'undefined' &&
+        (!Array.isArray(aObject) || aObject.length > 0);
+
+};
 
 export class JsonClassConverter {
 
@@ -135,6 +143,9 @@ export class JsonClassConverter {
 
     convertToJson(classedObject: [any | any[]]): any | Array<any> {
         const className = getClassNameOutOfObject(classedObject, this.classesMap);
+        if (!className){
+            return null;
+        }
         const conversionSchema = this.conversionMap.get(className);
 
         let retJsonObjectArray = new Array<any>();

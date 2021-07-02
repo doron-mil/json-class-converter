@@ -1,6 +1,6 @@
 {
   "name": "json-class-converter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module to serialize and deserialize JS/TS objects to JSON. ",
   "author": "Eldar-Doron Miller",
   "license": "SEE LICENSE IN LICENSE",
